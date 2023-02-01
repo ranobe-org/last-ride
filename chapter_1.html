@@ -1,0 +1,240 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Chapter 1</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="info.html"><strong aria-hidden="true">1.</strong> Info</a></li><li class="chapter-item expanded "><a href="chapter_1.html" class="active"><strong aria-hidden="true">2.</strong> Chapter 1</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title"></h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="chapter-1"><a class="header" href="#chapter-1">Chapter 1</a></h1>
+<p>Jane wasn’t been feeling well since the evening. She had too much to drink, in sorrow, 
+joy and a bunch of other feelings drive her to this one hell of a bar. They named it quite 
+meta “The Bar”. Like every other person in the world is trying to come up with a name so 
+simple that anyone can remember. Not so long ago, when you had to name something, they used 
+their name and initial but now it’s all “meta”. </p>
+<p>Jane is a manager at a law firm in London, paid well enough for all her booze to wash down 
+all the anxiety for the day. This was her usual routine,  work hard during the day and sip 
+a few drinks before going home. She always walk herself home every night but today she wasn’t 
+feeling right, something was off by a lot.</p>
+<p>She felt light, light as if she had no weight of her body to feel, it was not the booze. 
+It was as if the surrounding is full of mist and foul. She never remembers feeling too unearthly, 
+not that she can even remember any day from start to finish. But it was different, different indeed.</p>
+<p>She was standing outside “The Bar” and couldn’t remember how she ended up outside or even 
+went in. All she remembers is how she decided on going early home and watching some TV before bed. 
+It was getting dark. She wanted to go home desperately. She waved her hand for a taxi but with 
+no luck. There were multiple taxis with no passengers, driving on the same road, but no one would stop. 
+She looked left and right. Hoping for something, she spotted a taxi at the end of the block. 
+She rushed towards it. The taxi had no passengers. </p>
+<p>Jane asked the driver to take her to 20th Street, Block 8. But he wasn’t listening, in fact, 
+he had not noticed her all this time. She ignored her and sat in the back seat in the window 
+seat looking at the road.  The Taxi stink of all the awful things anyone can think of. But all 
+she wanted was to go home.</p>
+<p>She said to the driver who now was looking at “The Bar”, “Take me to 20th Street”. He ignored. 
+He circle around the car until he sat in the driver’s seat. He ignited the car and started driving. 
+She sighed, “Off we go!”.</p>
+<p>The driver seemed quite a rude person, he did not ask her again where to go nor he answered her. 
+She kept thinking of all the possible situations on this ride going wrong, it’s weird that even in 
+such a situation the mind will come up with million possibilities of something so simple. Like you 
+live a hundred deaths created by your own mind. But her thought was disturbed, the driver was now 
+shouting at people on the road. </p>
+<p>“Get away from the road! Find some other taxi to die, Idiots!”, he continued, “This city is filled 
+with people with useless jobs and getting drunk all night”. </p>
+<p>Jane felt offended, “You cannot blame the people, having a job is exciting and stressful. This is 
+the only way for stress relief”. </p>
+<p>He didn’t reply, maybe he didn’t agree with her self-pity comment.</p>
+<p>She didn’t bother continuing, she was more relieved at heading towards 20th Street. The day had 
+been tiring and full of surprises for her. All she wanted was to go home and get some sleep. 
+Tomorrow was another big day. She wanted to store all the energy that is left in her, which wasn’t much.</p>
+<p>As the taxi entered 20th Street just before the corner, Jane saw the area was lit with blue and 
+red colours, cops or ambulance or could be firefighters? She jumped from the sit to take a better 
+look, the road was crowded in circles. People gathered to a get peek at the scene of an accident. 
+An accident in this neighbour is quite rare, she thought.</p>
+<p>The taxi driver was already out of his seat to get a peek of his own. He didn’t even bother to 
+get paid. She wanted to get out so bad, but her stomach churned, she was scared, immobile. Taking 
+two full breaths she lifted herself out of the sit and started approaching the scene. </p>
+<p>As she walked up to the crowd. She knew something awful has happen. She wanted to look so bad that 
+she could push all of them to make a way but didn’t have to. The police started to clear the crowd in 
+an attempt to pick up what seems to be a body of a person. A body of a woman. She saw a woman the same 
+as her age, flat on the ground, face on the road, blood pooling around her head. </p>
+<p>She took a look at the face, which seems similar, so similar that she cried in a small voice, 
+“It’s me!”. And no one can hear her.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="info.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="info.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </body>
+</html>
